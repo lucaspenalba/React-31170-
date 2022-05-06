@@ -1,29 +1,37 @@
-export default function Navbar () {
+import { Navbar, Container, Nav } from 'react-bootstrap';
+import BottonNav from '../BottomNav/BottonNav';
+import CartIcon from '../Carticon/CartIcon';
 
-    const headersStyle = {
-        background: "#338aff",        
 
+export default function Header ({category1,category2,category3}) {
+
+    const Button = ({texto}) => {
+        return(
+            <input type="button" value={texto}/>
+        )
     }
-    
-    const headerStyle = {
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-between",
-        listStyle: "none",
-    }
+
 
 
     return (
-        <header className="header" style={headersStyle}>
-            <div className="logo">Alimento de Mascotas</div>
-            <ul className="Items" style={headerStyle}>
-                <li>Inicio</li>
-                <li>Prodcutos</li>
-                <li>Categorias</li>
-                <li>Perfil</li>
-            </ul>
-            
-        </header>
+        <>
+            <Navbar bg="dark" variant="dark">
+                <Container>
+                    <Navbar.Brand href="#home">Alimento de Mascotas</Navbar.Brand>
+                    <Nav className="me-auto">
+                        <Nav.Link href="#home">Inicio</Nav.Link>
+                        <Nav.Link href="#productos">{category1}</Nav.Link>
+                        <Nav.Link href="#categorias">{category2}</Nav.Link>
+                        <Nav.Link href="#perfil">{category3}</Nav.Link>
+                        </Nav>
+                    <CartIcon/>
+                </Container>
+            </Navbar>
+            <Button texto="click"/>
+            <BottonNav/>
+        
+        </>
+
     );
 
 }
