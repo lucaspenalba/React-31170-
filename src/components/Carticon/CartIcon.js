@@ -1,9 +1,10 @@
+import { Container } from 'react-bootstrap'
 
 export default function CartIcon () {
     return(
-        <div>
-            <img src="image/cart.png" alt="icono Carrito"/>
-        </div>
+        <Container>
+            <img src="image/cart.png" alt="icono Carrito" style={{width: "2rem"}}/>
+        </Container>
     )
 
 }
