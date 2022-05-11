@@ -5,12 +5,7 @@ import CartIcon from '../Carticon/CartIcon';
 
 export default function Header ({category1,category2,category3}) {
 
-    const Button = ({texto}) => {
-        return(
-            <input type="button" value={texto}/>
-        )
-    }
-
+    
 
 
     return (
@@ -27,7 +22,6 @@ export default function Header ({category1,category2,category3}) {
                     <CartIcon/>
                 </Container>
             </Navbar>
-            <Button texto="click"/>
             <BottonNav/>
         
         </>

@@ -1,3 +1,4 @@
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import Header from "./components/Navbar/Navbar";
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
     <div className="App">
       <Header category1={"Productos"} category2={"Categoria"} category3={"Perfil"} />
       <h1>Mi primera aplicacion</h1>
+      <ItemListContainer/>
     </div>
   );
 }
