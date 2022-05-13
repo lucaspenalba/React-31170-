@@ -5,7 +5,6 @@ function App() {
   return (
     <div className="App">
       <Header category1={"Productos"} category2={"Categoria"} category3={"Perfil"} />
-      <h1>Mi primera aplicacion</h1>
       <ItemListContainer/>
     </div>
   );
