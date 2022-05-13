@@ -1,4 +1,4 @@
-const productos = [
+export const products = [
     {
       id: 1, 
       title: "Alimento Pro Plan para Gato Adulto Pollo Y Arroz",
@@ -42,15 +42,3 @@ const productos = [
         image: "image/complete-perro-adulto-myg.jpg"
       },
   ]
-
-  export const products = new Promise ((resolve, reject ) => {
-    //acciones
-    let condition = true
-    setTimeout(()=> {
-      if(condition){
-        resolve(productos)
-      }else{
-        reject('Salio mal :(')
-      }
-    }, 3000)
-  })
