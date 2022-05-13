@@ -1,29 +1,21 @@
-import { Card } from 'react-bootstrap';
-import AddButton from '../AddButton/AddButton';
+import React from 'react'
+import Item from '../Item/Item'
+import {products} from "../../data/productos";
 
 
-export default function ItemList ({product}) {  
-    
-    return (
-        <>  
-            <div className='itemlist-container'>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={product.image} className="img-fluid" />
-                        <Card.Body>
-                            <Card.Title>{product.title}</Card.Title>
-                            <Card.Text>
-                            <p>Stock: {product.stock}</p>
-                            <p>Precio: {product.price}</p>
-                            </Card.Text>
-                            <div className='item'>  
-                                <AddButton stock={product.stock}/>
-                            </div>
-                        </Card.Body>
-                </Card>           
-
-            </div>
-        </>
-
-    );
-
+const ItemList = ({product}) => {
+    // const {listaProductos } = props
+  return (
+      <>
+        <h3>Lista de productos</h3>
+    <div style={{display:'flex', justifyContent:'space-between', flexWrap:'wrap', alignItems:'center' }}>
+    {products.map((product, index) => (
+          <Item product={product} key={product.id}/>
+        )
+      )}
+    </div>
+      </>
+  )
 }
+
+export default ItemList
