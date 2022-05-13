@@ -1,30 +1,38 @@
 
-import { Card } from 'react-bootstrap';
-import AddButton from '../AddButton/AddButton';
-
+import React from "react";
+import ItemList from "../ItemList/ItemList";
+import {products} from "../../data/productos";
 
 
 export default function ItemListContainer () {  
-    
-    return (
-        <>  
-            <div className='itemlist-container'>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="holder.js/100px180" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
-                            </Card.Text>
-                            <div className='item'>  
-                                <AddButton/>
-                            </div>
-                        </Card.Body>
-                </Card>           
 
-            </div>
-        </>
+    const task = new Promise ((resolve, reject) => {
+        let condition = true
+        setTimeout(() => {
+            if(condition){
+                
+                resolve(products)
+            }else{
+				reject('error')
+			}
+        }, 5000)
+        
+      })
+
+      console.log(task)
+      
+      
+    return (
+
+        
+
+        
+        <div className="ItemListContainer">
+      {products.map((product, index) => (
+          <ItemList product={product} key={product.id}/>
+        )
+      )}
+    </div>
 
     );
 

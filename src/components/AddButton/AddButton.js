@@ -1,12 +1,12 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 
 
-export default function AddButton () {   
+export default function AddButton ({stock}) {   
 
     const [count, setCount] = React.useState(1)
-    const stock = 10
+    
 
     const onAdd = () =>  {
         if(count < stock){
