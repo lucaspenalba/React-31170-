@@ -22,7 +22,7 @@ export default function AddButton ({stock}) {
 
     const StockButton = ({handleOnclick, text}) => {
         return (
-            <Button className="stock-button" onClick={handleOnclick}>
+            <Button className="stock-button" onClick={handleOnclick} variant="dark">
                 {text}
             </Button>
         )
@@ -31,7 +31,7 @@ export default function AddButton ({stock}) {
 
     const AddButton = () => {
         return (
-            <Button className="add-button">
+            <Button className="add-button" variant="dark">
                 Añadir al carrito
             </Button>
         )
