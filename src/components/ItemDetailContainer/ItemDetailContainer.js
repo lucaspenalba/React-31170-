@@ -4,38 +4,33 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 
 
 
-export default function ItemDetailContainer ({id}) {  
-    const [items, setItem] = React.useState([])
-    const [cargando, setCargando] = useState(false)
+export default function ItemDetailContainer ({productId}) {  
+
+    const [items, setItem] = useState([])
 
 
   React.useEffect (() =>{
 
-    setCargando(true)
-    setTimeout(()=> {
-        
+    
         axios.get("https://6286e64e7864d2883e7b4b8d.mockapi.io/productos")
-        .then((res) => setItem (res.data.find(item => item.id === id)))
-        .catch((err) => console.error(err))
-        .finally(()=> setCargando(false))
+        .then((res) => setItem (res.data.find(item => item.id === +productId)))
         
-      }, 3000)
+        
+      
     
   
-  },[id])
+  },[productId])
 
-  console.log(items)  
 
 
   return (
     <>
     <div className="ItemDetailContainer">
-        {cargando ? <p>Cargando...</p> : 
-      items.map((item,i)=> (
-          <ItemDetail items={item} key={item.id}/>))
+        
+      {items.map((item,i)=> (<ItemDetail item={item} key={item.id}/>))}
       
         
-        }
+        
       
     </div>
     </>
