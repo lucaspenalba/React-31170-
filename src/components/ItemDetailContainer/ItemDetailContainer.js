@@ -4,7 +4,7 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 
 
 
-export default function ItemDetailContainer () {  
+export default function ItemDetailContainer ({id}) {  
     const [items, setItem] = React.useState([])
     const [cargando, setCargando] = useState(false)
 
@@ -14,8 +14,8 @@ export default function ItemDetailContainer () {
     setCargando(true)
     setTimeout(()=> {
         
-        axios.get("https://api.mercadolibre.com/sites/MLA/search?q=alimento%20para%20perro")
-        .then((res) => setItem (res.data.results))
+        axios.get("https://6286e64e7864d2883e7b4b8d.mockapi.io/productos")
+        .then((res) => setItem (res.data.find(item => item.id === id)))
         .catch((err) => console.error(err))
         .finally(()=> setCargando(false))
         

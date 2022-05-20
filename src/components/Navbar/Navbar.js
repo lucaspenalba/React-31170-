@@ -1,6 +1,7 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import BottonNav from '../BottomNav/BottonNav';
 import CartIcon from '../Carticon/CartIcon';
+import { Link } from 'react-router-dom'
 
 
 export default function Header ({category1,category2,category3}) {
@@ -12,12 +13,14 @@ export default function Header ({category1,category2,category3}) {
         <>
             <Navbar bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Alimento de Mascotas</Navbar.Brand>
+                    <Navbar.Brand>
+                        <Link to="/">Alimento de Mascotas</Link>
+                    </Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Inicio</Nav.Link>
-                        <Nav.Link href="#productos">{category1}</Nav.Link>
-                        <Nav.Link href="#categorias">{category2}</Nav.Link>
-                        <Nav.Link href="#perfil">{category3}</Nav.Link>
+                        <Nav.Link><Link to="/">Inicio</Link></Nav.Link>
+                        <Nav.Link><Link to="/products">{category1}</Link></Nav.Link>
+                        <Nav.Link><Link to="/products">{category2}</Link></Nav.Link>
+                        <Nav.Link><Link to="/products">{category3}</Link></Nav.Link>
                         </Nav>
                     <CartIcon/>
                 </Container>
