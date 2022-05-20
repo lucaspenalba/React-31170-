@@ -27,7 +27,7 @@ export default function ItemDetailContainer ({productId}) {
     <>
     <div className="ItemDetailContainer">
         
-      {items.map((item,i)=> (<ItemDetail item={item} key={item.id}/>))}
+      <ItemDetail items={items}/>
       
         
         
