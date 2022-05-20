@@ -22,9 +22,9 @@ export default function ItemDetailContainer ({id}) {
       }, 3000)
     
   
-  },[])
+  },[id])
 
-  console.log(items[0])  
+  console.log(items)  
 
 
   return (
@@ -32,7 +32,7 @@ export default function ItemDetailContainer ({id}) {
     <div className="ItemDetailContainer">
         {cargando ? <p>Cargando...</p> : 
       items.map((item,i)=> (
-          <ItemDetail item={item} key={item.id}/>))
+          <ItemDetail items={item} key={item.id}/>))
       
         
         }
