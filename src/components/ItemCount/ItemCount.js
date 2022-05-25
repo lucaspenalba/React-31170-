@@ -31,11 +31,6 @@ export default function AddButton ({count, onAdd, onDecrease}) {
 
     }
 
-    
-
-
-
-
     return (
         <>
         <div>
