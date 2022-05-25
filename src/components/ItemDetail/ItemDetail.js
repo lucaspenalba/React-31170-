@@ -1,8 +1,27 @@
+import React from 'react';
 import {Container, Row, Col, Card} from 'react-bootstrap';
+import ItemCount from '../ItemCount/ItemCount';
 
 
 
 export default function ItemDetail ({items}) {  
+
+    const [count, setCount] = React.useState(1)
+    
+
+    const onAdd = () =>  {
+        if(count < items.stock){
+            setCount (count + 1)
+        }
+    }
+
+    const onDecrease = () =>  {
+        if(count > 1) {
+            setCount (count - 1)
+        }
+    }
+
+    
     
     
     return (
@@ -17,10 +36,13 @@ export default function ItemDetail ({items}) {
                     <Col>
                         <p>{items.title}</p>
                         <p>${items.price}</p>
+                        <p>Stock: {items.stock}</p>
+                        <ItemCount count={count} onDecrease={onDecrease} onAdd={onAdd} />
                     
                     </Col>
                 </Row>                
             </Container>
+            
         </>
 
     );
