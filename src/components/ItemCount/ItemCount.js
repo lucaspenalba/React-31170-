@@ -1,17 +1,28 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap';
 
 
 
 
-export default function AddButton ({count, onAdd, onDecrease}) { 
+
+export default function AddButton ({count, onAdd, onDecrease}) {  
     
-    const [action, setAction] = React.useState("carrito")
+    const [action, setAction] = React.useState("comprar")
     
-    
-    
-    const StockButton = ({handleOnclick, text}) => {
+   
+  
+    const AddButton = () => (
+        <Button onClick={()=> setAction("carrito")} className="stock-button" variant="dark">Comprar</Button>
+      );
+
+      const GoToCart = () => (
+        <Link to="/cart" >
+        <Button className="stock-button" variant="success">Carrito</Button>
+        </Link> 
+      );
+
+      const StockButton = ({handleOnclick, text}) => {
         return (
             <Button className="stock-button" onClick={handleOnclick} variant="dark">
                 {text}
@@ -20,33 +31,25 @@ export default function AddButton ({count, onAdd, onDecrease}) {
 
     }
 
-    const AddButton = () => {
-        
-            <Button className="add-button" variant="dark" onClick={()=> setAction("carrito")}>
-                Comprar
-            </Button>
-        
-    }
+    
 
-    const GoCart = () => {
-        <Link to="/cart" >
-            <Button className="add-button" variant="dark"  >
-                Comprar
-            </Button>
-        </Link>    
-        
-    }
 
-    const Button = action === "carrito" ? AddButton : GoCart
 
 
     return (
-        <div className="add-button-container">
+        <>
+        <div>
             <StockButton text="-" handleOnclick={onDecrease}/>
             <span className="add-button-count">{count}</span>
             <StockButton text="+" handleOnclick={onAdd}/>
-            <Button/>
         </div>
+
+        <div className="add-button-container"style={{marginTop: 20}}>
+        {action === "comprar" ? <AddButton /> : <GoToCart />}
+            
+        </div>
+        </>
+        
 
     );
 
