@@ -4,7 +4,7 @@ import CartIcon from '../Carticon/CartIcon';
 import { NavLink } from 'react-router-dom'
 
 
-export default function Header ({category1,category2,category3}) {
+export default function Header () {
 
     
 
@@ -18,9 +18,9 @@ export default function Header ({category1,category2,category3}) {
                     </Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link><NavLink to="/">Inicio</NavLink></Nav.Link>
-                        <Nav.Link><NavLink to="/products">{category1}</NavLink></Nav.Link>
-                        <Nav.Link><NavLink to="/category/1">{category2}</NavLink></Nav.Link>
-                        <Nav.Link><NavLink to="/category/2">{category3}</NavLink></Nav.Link>
+                        <Nav.Link><NavLink to="/products">Productos</NavLink></Nav.Link>
+                        <Nav.Link><NavLink to="/category/1">Categoria 1</NavLink></Nav.Link>
+                        <Nav.Link><NavLink to="/category/2">Categoria 2</NavLink></Nav.Link>
                     </Nav>
                     <CartIcon/>
                 </Container>

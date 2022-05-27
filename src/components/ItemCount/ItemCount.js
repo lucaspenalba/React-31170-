@@ -13,12 +13,12 @@ export default function AddButton ({count, onAdd, onDecrease}) {
    
   
     const AddButton = () => (
-        <Button onClick={()=> setAction("carrito")} className="stock-button" variant="dark">Comprar</Button>
+        <Button onClick={()=> setAction("carrito")} className="stock-button" variant="dark">Agregar al Carrito</Button>
       );
 
       const GoToCart = () => (
         <Link to="/cart" >
-        <Button className="stock-button" variant="success">Carrito</Button>
+        <Button className="stock-button" variant="success">Ver Carrito</Button>
         </Link> 
       );
 
