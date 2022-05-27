@@ -1,6 +1,5 @@
 import { Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import AddButton from '../AddButton/AddButton';
 
 
 export default function Item ({product}) {  
@@ -9,7 +8,7 @@ export default function Item ({product}) {
     return (
         <>  
             <div className='itemlist-container'>
-                <Card style={{ width: '18rem' }} onClick={() => navigate(`/product/${product.id}`)}>
+                <Card style={{ width: '18rem' } } onClick={() => navigate(`/product/${product.id}`)}>
                     <Card.Img variant="top" src={product.image} className="img-fluid" />
                         <Card.Body>
                             <Card.Title>{product.title}</Card.Title>
@@ -18,7 +17,6 @@ export default function Item ({product}) {
                             <p>Precio: {product.price}</p>
                             </Card.Text>
                             <div className='item'>  
-                                <AddButton stock={product.stock}/>
                             </div>
                         </Card.Body>
                 </Card>           

@@ -40,7 +40,7 @@ export default function ItemDetail ({items}) {
                         <p>{items.title}</p>
                         <p>${items.price}</p>
                         <p>Stock: {items.stock}</p>
-                        <ItemCount onSubmit={() => addToCart(items)} count={count} onDecrease={onDecrease} onAdd={onAdd} />
+                        <ItemCount onSubmit={() => addToCart(items, count)} count={count} onDecrease={onDecrease} onAdd={onAdd} />
                     
                     </Col>
                 </Row>                
