@@ -11,14 +11,14 @@ const CartProvider = ({children}) => {
 
     const [cart, setCart] = React.useState([])
     
-    const addToCart = () => {
+    const addToCart = (items) => {
+        setCart([...cart,{...items, quantity: 1}])
       
     }
   
    
     const removeFromCart = (id) => {
      
-      
       
     }
    

@@ -1,10 +1,13 @@
 import React from 'react';
 import {Container, Row, Col, Card} from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
+import { CartContext } from "../../context/CartContext";
 
 
 
 export default function ItemDetail ({items}) {  
+
+    const { addToCart}= React.useContext(CartContext);
 
     const [count, setCount] = React.useState(1)
     
@@ -37,7 +40,7 @@ export default function ItemDetail ({items}) {
                         <p>{items.title}</p>
                         <p>${items.price}</p>
                         <p>Stock: {items.stock}</p>
-                        <ItemCount count={count} onDecrease={onDecrease} onAdd={onAdd} />
+                        <ItemCount onSubmit={() => addToCart(items)} count={count} onDecrease={onDecrease} onAdd={onAdd} />
                     
                     </Col>
                 </Row>                

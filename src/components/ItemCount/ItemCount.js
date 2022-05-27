@@ -6,15 +6,17 @@ import { Button } from 'react-bootstrap';
 
 
 
-export default function AddButton ({count, onAdd, onDecrease}) {  
+export default function AddButton ({count, onAdd, onDecrease, onSubmit}) {  
     
     const [action, setAction] = React.useState("comprar")
     
    
   
-    const AddButton = () => (
-        <Button onClick={()=> setAction("carrito")} className="stock-button" variant="dark">Agregar al Carrito</Button>
-      );
+  
+
+const AddButton = ({handleOnSubmit}) => {
+    return <Button className="btn add-button" onClick={() => {handleOnSubmit(); setAction("carrito")}} variant="dark">Añadir al carrito</Button>;
+  };
 
       const GoToCart = () => (
         <Link to="/cart" >
@@ -40,7 +42,7 @@ export default function AddButton ({count, onAdd, onDecrease}) {
         </div>
 
         <div className="add-button-container"style={{marginTop: 20}}>
-        {action === "comprar" ? <AddButton /> : <GoToCart />}
+        {action === "comprar" ? <AddButton handleOnSubmit={onSubmit}/> : <GoToCart />}
             
         </div>
         </>
