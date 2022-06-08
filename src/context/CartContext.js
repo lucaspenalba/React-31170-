@@ -31,6 +31,8 @@ const CartProvider = ({children}) => {
   
    
     const removeFromCart = (id, items) => {
+
+      
         if (items.quantity===1){
 
             const newCart = cart.filter((carItem) => carItem.id !== id);

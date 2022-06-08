@@ -8,7 +8,6 @@ export default function Cart(){
     const {cart, deleteAll, removeFromCart}= React.useContext(CartContext);
     const [price, setPrice] = useState(0);
 
-
     const handlePrice = () => {
         let ans = 0;
         cart.map((item) => (ans += item.quantity * item.price));
@@ -20,6 +19,7 @@ export default function Cart(){
       });
 
     return(
+        price === 0 ? <h1>No hay productos en el carrito</h1> :
         <>
         
         <div>        
@@ -40,21 +40,17 @@ export default function Cart(){
                         </ListGroup.Item>
                         
                     </ListGroup>
-                    <div>
-                    
-                    </div>
-                    
-                                        
+                   
+                                       
             </div>
             
             ))}
             <div>
                 <p>Total: {price}</p>
             </div>
-            <button className="btn btn-danger" onClick={() => { deleteAll()}}>Vaciar Carrito</button>
-            
+            <button className="btn btn-danger" onClick={() => { deleteAll()}}>Vaciar Carrito</button>            
         </div>
-        
+       
         
         </>
 
