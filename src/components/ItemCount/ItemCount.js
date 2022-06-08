@@ -20,7 +20,7 @@ const AddButton = ({handleOnSubmit}) => {
 
       const GoToCart = () => (
         <Link to="/cart" >
-        <Button className="stock-button" variant="success">Ver Carrito</Button>
+        <Button className="stock-button" variant="success">Terminar mi compra</Button>
         </Link> 
       );
 
