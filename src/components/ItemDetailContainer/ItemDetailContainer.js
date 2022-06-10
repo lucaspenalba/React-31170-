@@ -1,5 +1,5 @@
 import React, { useState }  from 'react'
-import axios from "axios"
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import ItemDetail from "../ItemDetail/ItemDetail";
 
 
@@ -10,10 +10,16 @@ export default function ItemDetailContainer ({productId}) {
 
 
   React.useEffect (() =>{
+    const db = getFirestore();
 
     
-        axios.get("https://6286e64e7864d2883e7b4b8d.mockapi.io/productos")
-        .then((res) => setItem (res.data.find(item => item.id === +productId)))
+    const productRef = doc(db, "productos", productId);
+    getDoc(productRef).then(snapshot => {
+      if (snapshot.exists) {
+        setItem ({id: snapshot.id, ...snapshot.data()})
+      }
+    })
+  
         
         
       

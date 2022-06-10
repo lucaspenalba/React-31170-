@@ -1,7 +1,6 @@
 import React, { useState }  from 'react'
 import ItemList from "../ItemList/ItemList";
-import axios from "axios"
-
+import { getFirestore, getDocs, collection, query, where} from "firebase/firestore"
 
 
 export default function ItemListContainer ({categoryId}) {  
@@ -9,24 +8,26 @@ export default function ItemListContainer ({categoryId}) {
    
   
     React.useEffect(()=>{
+      const db = getFirestore();
 
       if(categoryId){
-
-        axios.get("https://6286e64e7864d2883e7b4b8d.mockapi.io/productos")
-        .then((res) => setListProducts (res.data.filter(item => item.categoryId === +categoryId)))
-        
+        const qry = query(collection(db, "productos"), where("categoryId", "==", categoryId)) 
+        getDocs(qry).then(snapshot => {
+        if (snapshot.size === 0) {
+          console.log('No matching documents.');
+        }
+        setListProducts (snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
+          })
+      } else {
+        const productosRef = collection(db, "productos");
+        getDocs(productosRef).then(snapshot => {
+        setListProducts (snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
+        console.log(setListProducts);
+        })
       }
-      else{
-        axios.get("https://6286e64e7864d2883e7b4b8d.mockapi.io/productos")
-        .then((res) => setListProducts (res.data))
-      }
-
-   
     
-      
-        
 
-      
+
     }, [categoryId])
   
   
