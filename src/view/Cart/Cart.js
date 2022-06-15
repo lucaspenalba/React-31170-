@@ -1,6 +1,7 @@
 import React, { useState, useEffect }  from 'react'
+import { Link } from 'react-router-dom'
 import { CartContext } from "../../context/CartContext";
-import {ListGroup, Row, Col} from 'react-bootstrap';
+import {ListGroup, Row, Col, Button} from 'react-bootstrap';
 
 
 export default function Cart(){
@@ -18,6 +19,12 @@ export default function Cart(){
         handlePrice();
       });
 
+      const GoToCheck = () => (
+        <Link to="/checkout" >
+        <Button className="stock-button" variant="success">Terminar mi compra</Button>
+        </Link> 
+      );
+
     return(
         price === 0 ? <h1>No hay productos en el carrito</h1> :
         <>
@@ -34,7 +41,8 @@ export default function Cart(){
                                 <Col md={2}><p>Precio: {item.price}</p></Col>
                                 <Col md={2}><p>Cantidad: {item.quantity}</p></Col>
                                 <Col md={2}>
-                                    <button className="btn btn-danger" onClick={() => { removeFromCart(item)}}>Eliminar</button>
+                                    <button className="btn btn-danger" onClick={() => { removeFromCart(item)}}>Eliminar</button>                                  
+                                    
                                 </Col>
                             </Row>
                         </ListGroup.Item>
@@ -48,7 +56,8 @@ export default function Cart(){
             <div>
                 <p>Total: {price}</p>
             </div>
-            <button className="btn btn-danger" onClick={() => { deleteAll()}}>Vaciar Carrito</button>            
+            <button className="btn btn-danger" onClick={() => { deleteAll()}}>Vaciar Carrito</button> 
+            <GoToCheck/>           
         </div>
        
         
